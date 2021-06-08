@@ -18,7 +18,7 @@ func _ready():
 	OS.center_window()
 	timer_settings()
 	$HUD/GameOverLabel.visible = false
-	time_left = 5 # Caution : Devolver a 30 sec
+	time_left = 30 # Caution : De no estar en 30s , devolverlo a ese valor
 	$HUD.update_timer(time_left)
 	screensize = get_viewport().get_visible_rect().size
 	spawn_bombs()
