@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/AlComenzar_v1.wav-cab9c94f4b688496425ee6ea851ad580.sample"
+
+[deps]
+
+source_file="res://assets/Sonidos/AlComenzar_v1.wav"
+dest_files=[ "res://.import/AlComenzar_v1.wav-cab9c94f4b688496425ee6ea851ad580.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://assets/Homura animations/homura_lose/homura_lose_05.png" type="Texture" id=1]
 [ext_resource path="res://assets/Homura animations/homura_win/homura_win_05.png" type="Texture" id=2]
@@ -36,6 +36,7 @@
 [ext_resource path="res://assets/Homura animations/homura_win/homura_win_03.png" type="Texture" id=34]
 [ext_resource path="res://assets/Homura animations/homura_win/homura_win_10.png" type="Texture" id=35]
 [ext_resource path="res://Player/Player.gd" type="Script" id=36]
+[ext_resource path="res://assets/Sonidos/RecogerBombas_v1.wav" type="AudioStream" id=37]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -78,5 +79,9 @@ playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
+
+[node name="BombAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 37 )
+volume_db = -20.0
 
 [connection signal="area_entered" from="." to="." method="_on_Player_area_entered"]

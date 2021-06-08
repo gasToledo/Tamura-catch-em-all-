@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/RecogerBombas_v1.wav-16b00f059d14c6542b320bce5eceab83.sample"
+
+[deps]
+
+source_file="res://assets/Sonidos/RecogerBombas_v1.wav"
+dest_files=[ "res://.import/RecogerBombas_v1.wav-16b00f059d14c6542b320bce5eceab83.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

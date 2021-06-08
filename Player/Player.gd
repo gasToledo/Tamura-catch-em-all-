@@ -49,10 +49,10 @@ func process_animations():
 
 
 func _on_Player_area_entered(area):
-	if area.is_in_group("bomb"):
-		if area.has_method("pickup"):
-			area.pickup()
-			emit_signal("picked")
+	if area.is_in_group("bomb") and area.has_method("pickup"):
+		$BombAudio.play()
+		emit_signal("picked")
+		area.pickup()
 
 
 func game_over():

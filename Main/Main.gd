@@ -1,6 +1,8 @@
 extends Node2D
 
 const BASIC_LEVEL = 5
+const BONUS_TIME = 5
+const LEVEL_PLUS = 1
 export (PackedScene) var Bomb
 
 var level = 0
@@ -8,8 +10,6 @@ var screensize = Vector2.ZERO
 var time_left = 0
 var actual_level = 1
 var score = 0
-var time_plus = 5
-var level_plus = 1
 onready var GameOverTimer = Timer.new()
 
 
@@ -37,8 +37,9 @@ func _onGamerOverTimer_timeout():
 
 func _process(delta):
 	if $BombContainer.get_child_count() == 0:
-		level += level_plus
-		time_left += time_plus
+		level += LEVEL_PLUS
+		time_left += BONUS_TIME
+		_audio_next_level()
 		_next_level()
 		spawn_bombs()
 
@@ -72,5 +73,20 @@ func game_over():
 	$GameTimer.stop()
 	$HUD/GameOverLabel.visible = true
 	$Player.game_over()
+	_audio_lose()
 	GameOverTimer.start()
 
+func _audio_next_level():
+	var Audio = AudioStreamPlayer.new()
+	Audio.stream = preload("res://assets/Sonidos/PasarNivel_v1.wav")
+	add_child(Audio)
+	Audio.volume_db = -20
+	Audio.play()
+
+
+func _audio_lose():
+	var Audio = AudioStreamPlayer.new()
+	Audio.stream = preload("res://assets/Sonidos/Perder_v2.wav")
+	add_child(Audio)
+	Audio.volume_db = -20
+	Audio.play()

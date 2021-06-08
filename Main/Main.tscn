@@ -78,6 +78,9 @@ margin_bottom = 359.506
 custom_fonts/font = SubResource( 2 )
 text = "Game Over!"
 align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="GameTimer" type="Timer" parent="."]
 autostart = true
