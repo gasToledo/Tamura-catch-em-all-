@@ -50,7 +50,7 @@ animations = [ {
 "speed": 10.0
 }, {
 "frames": [ ExtResource( 22 ), ExtResource( 8 ), ExtResource( 28 ), ExtResource( 27 ), ExtResource( 1 ), ExtResource( 30 ) ],
-"loop": true,
+"loop": false,
 "name": "Hurt",
 "speed": 10.0
 }, {
@@ -73,7 +73,7 @@ __meta__ = {
 scale = Vector2( 1.2, 1.2 )
 frames = SubResource( 1 )
 animation = "Idle"
-frame = 1
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

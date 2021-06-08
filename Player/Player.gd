@@ -53,3 +53,8 @@ func _on_Player_area_entered(area):
 		if area.has_method("pickup"):
 			area.pickup()
 			emit_signal("picked")
+
+
+func game_over():
+	set_process(false)
+	$AnimatedSprite.animation = "Hurt"
