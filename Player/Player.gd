@@ -1,5 +1,7 @@
 extends Area2D
 
+#Signals
+signal picked
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -50,3 +52,4 @@ func _on_Player_area_entered(area):
 	if area.is_in_group("bomb"):
 		if area.has_method("pickup"):
 			area.pickup()
+			emit_signal("picked")
