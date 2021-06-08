@@ -24,10 +24,12 @@ func _ready():
 
 
 func pickup():
-	$Tween.start() 
-	#Comienza lo que sea que tengas dentro del Tween
-	yield($Tween, "tween_completed") 
-	# Permite que la funcion termine antes de seguir con la siguiente
-	call_deferred("queue_free") 
-	#Elimina el nodo
+	$Tween.start() #Comienza lo que sea que tengas dentro del Tween
+	yield($Tween, "tween_completed") # Permite que la funcion termine antes de seguir con la siguiente
+	call_deferred("queue_free") #Elimina el nodo
 
+
+
+
+func _on_LifeTimer_timeout():
+	call_deferred("queue_free") #Elimina el nodo

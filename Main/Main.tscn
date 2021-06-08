@@ -85,5 +85,8 @@ __meta__ = {
 [node name="GameTimer" type="Timer" parent="."]
 autostart = true
 
+[node name="MadokaHeadTimer" type="Timer" parent="."]
+
 [connection signal="picked" from="Player" to="." method="_on_Player_picked"]
 [connection signal="timeout" from="GameTimer" to="." method="_on_GameTimer_timeout"]
+[connection signal="timeout" from="MadokaHeadTimer" to="." method="_on_MadokaHeadTimer_timeout"]

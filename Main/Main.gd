@@ -4,7 +4,7 @@ const BASIC_LEVEL = 5
 const BONUS_TIME = 5
 const LEVEL_PLUS = 1
 export (PackedScene) var Bomb
-
+var MadokaHead = preload("res://Bomb/MadokaHead.tscn")
 var level = 0
 var screensize = Vector2.ZERO
 var time_left = 0
@@ -22,6 +22,7 @@ func _ready():
 	$HUD.update_timer(time_left)
 	screensize = get_viewport().get_visible_rect().size
 	spawn_bombs()
+	set_cherry_timer()
 
 
 func timer_settings():
@@ -61,9 +62,14 @@ func _on_GameTimer_timeout():
 		game_over()
 
 
-func _on_Player_picked():
-	score += 1
-	$HUD.update_score(score)
+func _on_Player_picked(type): #Type puede ser "Bomb" o "MadokaHead"
+	match type:
+		"bomb":
+			score += 1
+			$HUD.update_score(score)
+		"MadokaHead":
+			time_left += 5
+			$HUD.update_timer(time_left)
 
 func _next_level():
 	actual_level += 1
@@ -90,3 +96,24 @@ func _audio_lose():
 	add_child(Audio)
 	Audio.volume_db = -20
 	Audio.play()
+
+
+func set_cherry_timer():
+	var interval = rand_range(5, 10)
+	$MadokaHeadTimer.wait_time = interval
+	$MadokaHeadTimer.start()
+
+
+
+func _on_MadokaHeadTimer_timeout():
+	# 1. Se apaga el timer : stop()
+	$MadokaHeadTimer.stop()
+	# 2. crear la escena MadokaHead
+	var madokaHead = MadokaHead.instance()
+	madokaHead.position.x = rand_range(25, 460)
+	madokaHead.position.y = rand_range(25, 700)
+	# 3. agregar la escena MadokaHead al juego con : add_child("MadokaHead")
+	$BombContainer.add_child(madokaHead)
+		# 4. Ajustar el timeOut
+	set_cherry_timer()
+

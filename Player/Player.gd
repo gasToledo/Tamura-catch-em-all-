@@ -49,11 +49,14 @@ func process_animations():
 
 
 func _on_Player_area_entered(area):
-	if area.is_in_group("bomb") and area.has_method("pickup"):
+	if area.is_in_group("bomb"):
 		$BombAudio.play()
-		emit_signal("picked")
+		emit_signal("picked", "bomb")
+	elif area.is_in_group("MadokaHead"):
+		$MadokaHeadAudio.play()
+		emit_signal("picked", "MadokaHead")
+	if area.has_method("pickup"):
 		area.pickup()
-
 
 func game_over():
 	set_process(false)
