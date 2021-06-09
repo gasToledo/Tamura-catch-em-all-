@@ -2,7 +2,7 @@ extends Control
 
 func _ready():
 	OS.center_window()
-	#$BackgroundMusic.play()
+	$BackgroundMusic.play()
 
 
 func _on_Button_pressed():
