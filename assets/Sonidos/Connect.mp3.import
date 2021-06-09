@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Connect.mp3-a0b1ad861064d1c21f8ec0749fd48962.mp3str"
+
+[deps]
+
+source_file="res://assets/Sonidos/Connect.mp3"
+dest_files=[ "res://.import/Connect.mp3-a0b1ad861064d1c21f8ec0749fd48962.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

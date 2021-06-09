@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/InicioBackground.mp3-79885525dfbc956cf38ba67ad307c3c8.mp3str"
+
+[deps]
+
+source_file="res://assets/Sonidos/InicioBackground.mp3"
+dest_files=[ "res://.import/InicioBackground.mp3-79885525dfbc956cf38ba67ad307c3c8.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

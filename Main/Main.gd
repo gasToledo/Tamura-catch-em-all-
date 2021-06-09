@@ -14,8 +14,10 @@ onready var GameOverTimer = Timer.new()
 
 
 func _ready():
+	$Charlotte.visible = false
 	randomize()
 	OS.center_window()
+	#$GameBackgroundMusic.play()
 	timer_settings()
 	$HUD/GameOverLabel.visible = false
 	time_left = 30 # Caution : De no estar en 30s , devolverlo a ese valor
@@ -23,6 +25,7 @@ func _ready():
 	screensize = get_viewport().get_visible_rect().size
 	spawn_bombs()
 	set_MadokaHead_timer()
+	$Charlotte.visible = true
 
 
 func timer_settings():
@@ -88,6 +91,7 @@ func _audio_next_level():
 	add_child(Audio)
 	Audio.volume_db = -20
 	Audio.play()
+	Audio.connect("finished",self,"remove_audio", [Audio])
 
 
 func _audio_lose():
@@ -97,6 +101,7 @@ func _audio_lose():
 	Audio.volume_db = -20
 	Audio.play()
 	Audio.connect("finished",self,"remove_audio", [Audio])
+
 
 func remove_audio(node):
 	node.queue_free()
@@ -122,9 +127,9 @@ func _on_MadokaHeadTimer_timeout():
 
 func za_warudo():
 	#1. Parar el contador de tiempo
-	#2. Que se mantenga en stop por 3s
-	#3. Luego de los 3s el contador debe volver a iniciarse desde donde quedo
 	$GameTimer.stop()
 	if $GameTimer.is_stopped():
+		#2. Que se mantenga en stop por 3s
 		yield(get_tree().create_timer(3.0), "timeout")
+		#3. Luego de los 3s el contador debe volver a iniciarse desde donde quedo
 		$GameTimer.start()

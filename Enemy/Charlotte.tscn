@@ -1,0 +1,89 @@
+[gd_scene load_steps=45 format=2]
+
+[ext_resource path="res://assets/Enemy animations/Idle/Enemy_Idle_09.png" type="Texture" id=1]
+[ext_resource path="res://assets/Enemy animations/Idle/Enemy_Idle_03.png" type="Texture" id=2]
+[ext_resource path="res://assets/Enemy animations/Idle/Enemy_Idle_12.png" type="Texture" id=3]
+[ext_resource path="res://assets/Enemy animations/Idle/Enemy_Idle_11.png" type="Texture" id=4]
+[ext_resource path="res://assets/Enemy animations/Idle/Enemy_Idle_14.png" type="Texture" id=5]
+[ext_resource path="res://assets/Enemy animations/Idle/Enemy_Idle_15.png" type="Texture" id=6]
+[ext_resource path="res://assets/Enemy animations/Idle/Enemy_Idle_07.png" type="Texture" id=7]
+[ext_resource path="res://assets/Enemy animations/Idle/Enemy_Idle_10.png" type="Texture" id=8]
+[ext_resource path="res://assets/Enemy animations/Idle/Enemy_Idle_04.png" type="Texture" id=9]
+[ext_resource path="res://assets/Enemy animations/Idle/Enemy_Idle_02.png" type="Texture" id=10]
+[ext_resource path="res://assets/Enemy animations/Idle/Enemy_Idle_05.png" type="Texture" id=11]
+[ext_resource path="res://assets/Enemy animations/Idle/Enemy_Idle_13.png" type="Texture" id=12]
+[ext_resource path="res://assets/Enemy animations/Idle/Enemy_Idle_16.png" type="Texture" id=13]
+[ext_resource path="res://assets/Enemy animations/Idle/Enemy_Idle_01.png" type="Texture" id=14]
+[ext_resource path="res://assets/Enemy animations/Idle/Enemy_Idle_06.png" type="Texture" id=15]
+[ext_resource path="res://assets/Enemy animations/Idle/Enemy_Idle_08.png" type="Texture" id=16]
+[ext_resource path="res://assets/Enemy animations/AttackWitch/AttackWitch_01.png" type="Texture" id=17]
+[ext_resource path="res://assets/Enemy animations/AttackKnife/Knife_attackGif_09.png" type="Texture" id=18]
+[ext_resource path="res://assets/Enemy animations/AttackKnife/Knife_attackGif_08.png" type="Texture" id=19]
+[ext_resource path="res://assets/Enemy animations/AttackWitch/AttackWitch_11.png" type="Texture" id=20]
+[ext_resource path="res://assets/Enemy animations/AttackWitch/AttackWitch_09.png" type="Texture" id=21]
+[ext_resource path="res://assets/Enemy animations/AttackWitch/AttackWitch_07.png" type="Texture" id=22]
+[ext_resource path="res://assets/Enemy animations/AttackWitch/AttackWitch_02.png" type="Texture" id=23]
+[ext_resource path="res://assets/Enemy animations/AttackWitch/AttackWitch_03.png" type="Texture" id=24]
+[ext_resource path="res://assets/Enemy animations/AttackWitch/AttackWitch_08.png" type="Texture" id=25]
+[ext_resource path="res://assets/Enemy animations/AttackWitch/AttackWitch_06.png" type="Texture" id=26]
+[ext_resource path="res://assets/Enemy animations/AttackWitch/AttackWitch_04.png" type="Texture" id=27]
+[ext_resource path="res://assets/Enemy animations/AttackWitch/AttackWitch_10.png" type="Texture" id=28]
+[ext_resource path="res://assets/Enemy animations/AttackWitch/AttackWitch_14.png" type="Texture" id=29]
+[ext_resource path="res://assets/Enemy animations/AttackWitch/AttackWitch_05.png" type="Texture" id=30]
+[ext_resource path="res://assets/Enemy animations/AttackWitch/AttackWitch_13.png" type="Texture" id=31]
+[ext_resource path="res://assets/Enemy animations/AttackWitch/AttackWitch_12.png" type="Texture" id=32]
+[ext_resource path="res://assets/Enemy animations/Correr_adelante/Correr_adelante_03.png" type="Texture" id=33]
+[ext_resource path="res://assets/Enemy animations/AttackKnife/Knife_attackGif_01.png" type="Texture" id=34]
+[ext_resource path="res://assets/Enemy animations/Correr_adelante/Correr_adelante_02.png" type="Texture" id=35]
+[ext_resource path="res://assets/Enemy animations/AttackKnife/Knife_attackGif_03.png" type="Texture" id=36]
+[ext_resource path="res://assets/Enemy animations/AttackKnife/Knife_attackGif_05.png" type="Texture" id=37]
+[ext_resource path="res://assets/Enemy animations/AttackKnife/Knife_attackGif_07.png" type="Texture" id=38]
+[ext_resource path="res://assets/Enemy animations/AttackKnife/Knife_attackGif_02.png" type="Texture" id=39]
+[ext_resource path="res://assets/Enemy animations/AttackKnife/Knife_attackGif_04.png" type="Texture" id=40]
+[ext_resource path="res://assets/Enemy animations/AttackKnife/Knife_attackGif_06.png" type="Texture" id=41]
+[ext_resource path="res://Enemy/Charlotte.gd" type="Script" id=42]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 14 ), ExtResource( 10 ), ExtResource( 2 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 15 ), ExtResource( 7 ), ExtResource( 16 ), ExtResource( 1 ), ExtResource( 8 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 12 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 35 ), ExtResource( 33 ) ],
+"loop": true,
+"name": "Run",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 27 ), ExtResource( 30 ), ExtResource( 26 ), ExtResource( 22 ), ExtResource( 25 ), ExtResource( 21 ), ExtResource( 28 ), ExtResource( 20 ), ExtResource( 32 ), ExtResource( 31 ), ExtResource( 29 ) ],
+"loop": true,
+"name": "WitchAttack",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 34 ), ExtResource( 39 ), ExtResource( 36 ), ExtResource( 40 ), ExtResource( 37 ), ExtResource( 41 ), ExtResource( 38 ), ExtResource( 19 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "KnifeAttack",
+"speed": 12.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 13.7697, 37.1607 )
+
+[node name="Charlotte" type="Area2D"]
+script = ExtResource( 42 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 1.2, 1.2 )
+frames = SubResource( 1 )
+animation = "Idle"
+frame = 9
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 7.48065, 3.31255 )
+shape = SubResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
