@@ -124,7 +124,7 @@ func _on_MadokaHeadTimer_timeout():
 	$BombContainer.add_child(madokaHead)
 		# 4. Ajustar el timeOut
 	set_MadokaHead_timer()
-
+ 
 func za_warudo():
 	#1. Parar el contador de tiempo
 	$GameTimer.stop()
