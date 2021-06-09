@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Main/Main.gd" type="Script" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -19,6 +19,9 @@ font_data = ExtResource( 4 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 46.5266, 10 )
 
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 10.4439, 243.911 )
+
 [node name="Main" type="Node2D"]
 script = ExtResource( 1 )
 Bomb = ExtResource( 3 )
@@ -28,6 +31,7 @@ Bomb = ExtResource( 3 )
 [node name="Charlotte" parent="." instance=ExtResource( 7 )]
 position = Vector2( 116.868, 251.716 )
 scale = Vector2( 0.875955, 0.606028 )
+input_pickable = true
 
 [node name="BombContainer" type="Node2D" parent="."]
 
@@ -100,15 +104,32 @@ autostart = true
 stream = ExtResource( 6 )
 volume_db = -10.0
 
-[node name="Platform" type="StaticBody2D" parent="."]
+[node name="Plataform" type="StaticBody2D" parent="."]
 position = Vector2( 129.974, 316.151 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataform"]
 shape = SubResource( 3 )
 
+[node name="Borders" type="Node" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Borders"]
+position = Vector2( -10.0793, 373.81 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Left" type="CollisionShape2D" parent="Borders/StaticBody2D"]
+position = Vector2( -1, 0 )
+shape = SubResource( 4 )
+
+[node name="Right" type="CollisionShape2D" parent="Borders/StaticBody2D"]
+position = Vector2( 500.23, 8.00903 )
+shape = SubResource( 4 )
+
+[connection signal="hurt" from="Player" to="." method="_on_Player_hurt"]
 [connection signal="picked" from="Player" to="." method="_on_Player_picked"]
 [connection signal="timeout" from="GameTimer" to="." method="_on_GameTimer_timeout"]
 [connection signal="timeout" from="MadokaHeadTimer" to="." method="_on_MadokaHeadTimer_timeout"]

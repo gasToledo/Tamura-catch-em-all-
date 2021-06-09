@@ -40,12 +40,17 @@ func _onGamerOverTimer_timeout():
 
 
 func _process(delta):
+	update_plataform_position()
 	if $BombContainer.get_child_count() == 0:
 		level += LEVEL_PLUS
 		time_left += BONUS_TIME
 		_audio_next_level()
 		_next_level()
 		spawn_bombs()
+
+#Funcion que permite a la plataforma seguir a Charlotte
+func update_plataform_position():
+	$Plataform.position.x = $Charlotte.position.x
 
 
 #Metodo para spawnear bombas
@@ -65,7 +70,7 @@ func _on_GameTimer_timeout():
 		game_over()
 
 
-func _on_Player_picked(type): #Type puede ser "Bomb" o "MadokaHead"
+func _on_Player_picked(type): #Type puede ser "bomb" o "MadokaHead"
 	match type:
 		"bomb":
 			score += 1
@@ -73,6 +78,11 @@ func _on_Player_picked(type): #Type puede ser "Bomb" o "MadokaHead"
 		"MadokaHead":
 			za_warudo()
 			#$HUD.update_timer(time_left)
+
+func _on_Player_hurt(type):
+	if type == "enemy":
+		game_over()
+
 
 func _next_level():
 	actual_level += 1

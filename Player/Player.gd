@@ -2,6 +2,7 @@ extends Area2D
 
 #Signals
 signal picked
+signal hurt
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -58,7 +59,12 @@ func _on_Player_area_entered(area):
 	if area.has_method("pickup"):
 		area.pickup()
 
+
 func game_over():
 	set_process(false)
 	$AnimatedSprite.animation = "Hurt"
 
+
+func _on_Player_body_entered(body):
+	if body.is_in_group("enemy"):
+		emit_signal("hurt", "enemy")
