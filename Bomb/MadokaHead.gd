@@ -29,7 +29,5 @@ func pickup():
 	call_deferred("queue_free") #Elimina el nodo
 
 
-
-
 func _on_LifeTimer_timeout():
 	call_deferred("queue_free") #Elimina el nodo

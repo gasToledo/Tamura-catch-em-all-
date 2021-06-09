@@ -61,3 +61,4 @@ func _on_Player_area_entered(area):
 func game_over():
 	set_process(false)
 	$AnimatedSprite.animation = "Hurt"
+

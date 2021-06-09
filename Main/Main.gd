@@ -22,7 +22,7 @@ func _ready():
 	$HUD.update_timer(time_left)
 	screensize = get_viewport().get_visible_rect().size
 	spawn_bombs()
-	set_cherry_timer()
+	set_MadokaHead_timer()
 
 
 func timer_settings():
@@ -68,8 +68,8 @@ func _on_Player_picked(type): #Type puede ser "Bomb" o "MadokaHead"
 			score += 1
 			$HUD.update_score(score)
 		"MadokaHead":
-			time_left += 5
-			$HUD.update_timer(time_left)
+			za_warudo()
+			#$HUD.update_timer(time_left)
 
 func _next_level():
 	actual_level += 1
@@ -96,9 +96,12 @@ func _audio_lose():
 	add_child(Audio)
 	Audio.volume_db = -20
 	Audio.play()
+	Audio.connect("finished",self,"remove_audio", [Audio])
 
+func remove_audio(node):
+	node.queue_free()
 
-func set_cherry_timer():
+func set_MadokaHead_timer():
 	var interval = rand_range(5, 10)
 	$MadokaHeadTimer.wait_time = interval
 	$MadokaHeadTimer.start()
@@ -115,5 +118,13 @@ func _on_MadokaHeadTimer_timeout():
 	# 3. agregar la escena MadokaHead al juego con : add_child("MadokaHead")
 	$BombContainer.add_child(madokaHead)
 		# 4. Ajustar el timeOut
-	set_cherry_timer()
+	set_MadokaHead_timer()
 
+func za_warudo():
+	#1. Parar el contador de tiempo
+	#2. Que se mantenga en stop por 3s
+	#3. Luego de los 3s el contador debe volver a iniciarse desde donde quedo
+	$GameTimer.stop()
+	if $GameTimer.is_stopped():
+		yield(get_tree().create_timer(3.0), "timeout")
+		$GameTimer.start()
