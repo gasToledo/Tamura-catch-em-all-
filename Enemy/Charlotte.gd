@@ -19,7 +19,7 @@ func _ready():
 	randomize()
 	set_timer_interval()
 	
-	$JumpTimer.wait_time = rand_range(4,6)
+	$JumpTimer.wait_time = rand_range(2,4)
 	$JumpTimer.start()
 	transition_to(IDLE)
 
@@ -75,7 +75,7 @@ func _physics_process(delta):
 
 func set_timer_interval():
 	#Timer de "Mock"
-	var interval = rand_range(2, 4)
+	var interval = rand_range(4, 6)
 	$Timer.wait_time = interval
 	$Timer.start()
 
@@ -85,6 +85,7 @@ func _on_Timer_timeout():
 	$Timer.stop()
 	if state == IDLE:
 		transition_to(MOCK)
+		$Mock_audio.play()
 	set_timer_interval() 
 
 
@@ -100,10 +101,11 @@ func _on_Jump_timeout():
 	if state == IDLE:
 		velocity.y = jump_power
 		transition_to(JUMP)
+		$Jump_audio.play()
 		update_speed_direccion()
 	
 	#Timer de "Jump"
-	$JumpTimer.wait_time =  rand_range(4, 6)
+	$JumpTimer.wait_time =  rand_range(2, 4)
 	$JumpTimer.start()
 
 

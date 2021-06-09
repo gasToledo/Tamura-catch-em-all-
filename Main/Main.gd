@@ -17,7 +17,7 @@ func _ready():
 	$Charlotte.visible = false
 	randomize()
 	OS.center_window()
-	#$GameBackgroundMusic.play()
+	$GameBackgroundMusic.play()
 	timer_settings()
 	$HUD/GameOverLabel.visible = false
 	time_left = 30 # Caution : De no estar en 30s , devolverlo a ese valor

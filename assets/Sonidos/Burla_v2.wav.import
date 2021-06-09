@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Burla_v2.wav-6578f01ed802fdfe4c91af156a5ebd59.sample"
+
+[deps]
+
+source_file="res://assets/Sonidos/Burla_v2.wav"
+dest_files=[ "res://.import/Burla_v2.wav-6578f01ed802fdfe4c91af156a5ebd59.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

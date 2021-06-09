@@ -31,3 +31,9 @@ func pickup():
 
 func _on_LifeTimer_timeout():
 	call_deferred("queue_free") #Elimina el nodo
+
+
+func _on_MadokaHead_body_entered(body):
+		if body.is_in_group("enemy"):
+			self.position.x = rand_range(25, 470)
+			self.position.y = rand_range(25, 700)

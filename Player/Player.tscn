@@ -51,14 +51,14 @@ animations = [ {
 "name": "Run",
 "speed": 13.0
 }, {
-"frames": [ ExtResource( 21 ), ExtResource( 16 ), ExtResource( 34 ), ExtResource( 24 ), ExtResource( 2 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 19 ), ExtResource( 35 ), ExtResource( 6 ), ExtResource( 11 ), ExtResource( 3 ), ExtResource( 26 ), ExtResource( 26 ) ],
-"loop": true,
-"name": "Win",
-"speed": 10.0
-}, {
 "frames": [ ExtResource( 22 ), ExtResource( 8 ), ExtResource( 28 ), ExtResource( 27 ), ExtResource( 1 ), ExtResource( 30 ) ],
 "loop": false,
 "name": "Hurt",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 21 ), ExtResource( 16 ), ExtResource( 34 ), ExtResource( 24 ), ExtResource( 2 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 19 ), ExtResource( 35 ), ExtResource( 6 ), ExtResource( 11 ), ExtResource( 3 ), ExtResource( 26 ), ExtResource( 26 ) ],
+"loop": true,
+"name": "Win",
 "speed": 10.0
 } ]
 
@@ -76,7 +76,7 @@ __meta__ = {
 scale = Vector2( 1.2, 1.2 )
 frames = SubResource( 1 )
 animation = "Run"
-frame = 1
+frame = 9
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
