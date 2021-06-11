@@ -15,6 +15,11 @@ var time_left = 0
 var actual_level = 1
 var score = 0
 var za_warudo_flag = false
+
+var pauseMenu = preload("res://PauseMenu/Pause.tscn")
+var inst : Node = null
+var paused = false
+
 onready var GameOverTimer = Timer.new()
 
 #Volver a activar musica
@@ -41,8 +46,8 @@ func timer_settings():
 
 
 func _onGamerOverTimer_timeout():
+	# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://Menu/Menu.tscn")
-
 
 
 func _process(_delta):
@@ -177,3 +182,21 @@ func _aumentar_dificutad():
 	#1. Generar un rango que diferencia cada 5 niveles pasados
 	#2. Una vez que pasen los 5 niveles, aumentar la velocidad del enemy
 	pass
+
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_end"):
+		if not paused:
+			pause()
+		else: resume()
+
+func pause():
+	inst = pauseMenu.instance()
+	Engine.time_scale = 0.0
+	get_tree().current_scene.add_child(inst)
+	paused = true
+
+func resume():
+	Engine.time_scale = 1.0
+	get_tree().current_scene.remove_child(inst)
+	paused = false
