@@ -118,7 +118,7 @@ func remove_audio(node):
 	node.queue_free()
 
 func set_MadokaHead_timer():
-	var interval = rand_range(5, 10)
+	var interval = rand_range(10, 15)
 	$MadokaHeadTimer.wait_time = interval
 	$MadokaHeadTimer.start()
 

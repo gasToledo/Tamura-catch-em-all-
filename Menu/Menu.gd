@@ -2,7 +2,7 @@ extends Control
 #Volver a activar la musica
 func _ready():
 	OS.center_window()
-	#$BackgroundMusic.play()
+	$BackgroundMusic.play()
 
 
 func _on_Button_pressed():

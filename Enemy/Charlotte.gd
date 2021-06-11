@@ -47,6 +47,7 @@ func _process(_delta):
 	if new_anim != current_anim:
 		current_anim = new_anim
 		$AnimatedSprite.play(current_anim)
+
 	
 #Si no estas en el piso, debes moverte
 	if not is_on_floor() :
@@ -97,7 +98,7 @@ func _enable_hitbox():
 
 func _on_AnimatedSprite_animation_finished():
 	#Si una vez que la animacion que es igual a "Mock" finaliza se transiciona a "Idle"
-	if $AnimatedSprite.animation == "Mock":
+	if $AnimatedSprite.animation == "Mock" and Star_platinum.za_warudo_flag == false:
 		$Attack_hitbox.disabled = true
 		transition_to(IDLE)
 
