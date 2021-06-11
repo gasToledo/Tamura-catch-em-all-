@@ -41,16 +41,6 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 4 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 13 ), ExtResource( 10 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 25 ), ExtResource( 23 ), ExtResource( 9 ), ExtResource( 12 ), ExtResource( 17 ), ExtResource( 20 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 18 ), ExtResource( 29 ) ],
-"loop": true,
-"name": "Run",
-"speed": 13.0
-}, {
 "frames": [ ExtResource( 22 ), ExtResource( 8 ), ExtResource( 28 ), ExtResource( 27 ), ExtResource( 1 ), ExtResource( 30 ) ],
 "loop": false,
 "name": "Hurt",
@@ -60,6 +50,16 @@ animations = [ {
 "loop": true,
 "name": "Win",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 13 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 25 ), ExtResource( 23 ), ExtResource( 9 ), ExtResource( 12 ), ExtResource( 17 ), ExtResource( 20 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 18 ), ExtResource( 29 ) ],
+"loop": true,
+"name": "Run",
+"speed": 13.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -76,7 +76,7 @@ __meta__ = {
 scale = Vector2( 1.2, 1.2 )
 frames = SubResource( 1 )
 animation = "Run"
-frame = 8
+frame = 6
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

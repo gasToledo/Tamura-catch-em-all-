@@ -5,5 +5,8 @@ func _ready():
 	$BackgroundMusic.play()
 
 
-func _on_Button_pressed():
+func _on_ButtonPlay_pressed():
 	get_tree().change_scene("res://Main/Main.tscn")
+
+func _on_ButtonExit_pressed():
+	get_tree().quit()

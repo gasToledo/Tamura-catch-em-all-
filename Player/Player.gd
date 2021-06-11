@@ -8,6 +8,10 @@ signal hurt
 # var a = 2
 var velocity = Vector2.ZERO
 var speed = 350
+var pauseMenu = preload("res://PauseMenu/Pause.tscn").instance()
+var paused = false
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	OS.center_window()
@@ -27,13 +31,23 @@ func _process(delta):
 func get_input():
 	velocity = Vector2.ZERO
 	if Input.is_action_pressed("ui_left"):
-		velocity.x = -1
+		if not paused:
+			velocity.x = -1
 	if Input.is_action_pressed("ui_right"):
-		velocity.x = 1
+		if not paused:
+			velocity.x = 1
 	if Input.is_action_pressed("ui_up"):
-		velocity.y = -1
+		if not paused:
+			velocity.y = -1
 	if Input.is_action_pressed("ui_down"):
-		velocity.y = 1
+		if not paused:
+			velocity.y = 1
+	if Input.is_action_just_pressed("ui_end"):
+		if not paused:
+			pause()
+		else:
+			resume()
+
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
 
@@ -68,3 +82,14 @@ func game_over():
 func _on_Player_body_entered(body):
 	if body.is_in_group("enemy"):
 		emit_signal("hurt", "enemy")
+
+func pause():
+	if not game_over():
+		Engine.time_scale = 0.0
+		get_tree().current_scene.add_child(pauseMenu)
+		paused = true
+
+func resume():
+	Engine.time_scale = 1.0
+	get_tree().current_scene.remove_child(pauseMenu)
+	paused = false

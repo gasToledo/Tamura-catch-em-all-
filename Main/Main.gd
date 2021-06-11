@@ -3,7 +3,11 @@ extends Node2D
 const BASIC_LEVEL = 5
 const BONUS_TIME = 5
 const LEVEL_PLUS = 1
+
+
 export (PackedScene) var Bomb
+export (PackedScene) var Charlotte
+
 var MadokaHead = preload("res://Bomb/MadokaHead.tscn")
 var level = 0
 var screensize = Vector2.ZERO
@@ -33,6 +37,7 @@ func timer_settings():
 	GameOverTimer.wait_time = 2
 	GameOverTimer.connect("timeout",self, "_onGamerOverTimer_timeout")
 	self.add_child(GameOverTimer)
+
 
 
 func _onGamerOverTimer_timeout():
@@ -143,8 +148,8 @@ func za_warudo():
 	$GameTimer.stop()
 	_enemy_actions_stop()
 	if $GameTimer.is_stopped():
-		#2. Que se mantenga en stop por 3s
-		yield(get_tree().create_timer(3.0), "timeout")
+		#2. Que se mantenga en stop por 5s
+		yield(get_tree().create_timer(5.0), "timeout")
 		$OutZaWarudo.play()
 		#3. Luego de los 3s el contador debe volver a iniciarse desde donde quedo
 		$GameTimer.start()
@@ -166,3 +171,9 @@ func _enemy_actions_return():
 	if anim.is_playing() == false :
 		print("Continue che")
 		anim.play()
+
+func _aumentar_dificutad():
+	var _enemy = Charlotte.instance()
+	#1. Generar un rango que diferencia cada 5 niveles pasados
+	#2. Una vez que pasen los 5 niveles, aumentar la velocidad del enemy
+	pass

@@ -83,7 +83,6 @@ func set_timer_interval():
 
 #Timer para respirar ()
 func _on_Timer_timeout():
-	var Star_platinum = get_parent() 
 	$Timer.stop()
 	if state == IDLE and Star_platinum.za_warudo_flag == false:
 		transition_to(MOCK)
