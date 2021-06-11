@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Zw_sound.wav-3dc95725dc27e23e8e847af3e68e8a87.sample"
+
+[deps]
+
+source_file="res://assets/Sonidos/Zw_sound.wav"
+dest_files=[ "res://.import/Zw_sound.wav-3dc95725dc27e23e8e847af3e68e8a87.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

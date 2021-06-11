@@ -10,9 +10,10 @@ var screensize = Vector2.ZERO
 var time_left = 0
 var actual_level = 1
 var score = 0
+var za_warudo_flag = false
 onready var GameOverTimer = Timer.new()
 
-
+#Volver a activar musica
 func _ready():
 	$Charlotte.visible = false
 	randomize()
@@ -39,7 +40,7 @@ func _onGamerOverTimer_timeout():
 
 
 
-func _process(delta):
+func _process(_delta):
 	update_plataform_position()
 	if $BombContainer.get_child_count() == 0:
 		level += LEVEL_PLUS
@@ -55,7 +56,7 @@ func update_plataform_position():
 
 #Metodo para spawnear bombas
 func spawn_bombs():
-	for index in range(BASIC_LEVEL + level):
+	for _index in range(BASIC_LEVEL + level):
 		var Bomba = Bomb.instance()
 		##La linea 29 asegura que las bombas no salgan del rango visible del jugador
 		Bomba.position = Vector2(rand_range(0,screensize.x), rand_range(0,screensize.y))
@@ -137,9 +138,31 @@ func _on_MadokaHeadTimer_timeout():
  
 func za_warudo():
 	#1. Parar el contador de tiempo
+	za_warudo_flag = true
+	$EnterZaWarudo.play()
 	$GameTimer.stop()
+	_enemy_actions_stop()
 	if $GameTimer.is_stopped():
 		#2. Que se mantenga en stop por 3s
 		yield(get_tree().create_timer(3.0), "timeout")
+		$OutZaWarudo.play()
 		#3. Luego de los 3s el contador debe volver a iniciarse desde donde quedo
 		$GameTimer.start()
+		za_warudo_flag = false
+		_enemy_actions_return()
+
+
+func _enemy_actions_stop():
+	var anim = $Charlotte/AnimatedSprite
+	#1. comprobar si se esta moviendo. 
+	#2.si lo esta, detener la animacion en el frame exacto
+	if anim.is_playing():
+		print("He parao")
+		anim.stop()
+
+func _enemy_actions_return():
+	var anim = $Charlotte/AnimatedSprite
+
+	if anim.is_playing() == false :
+		print("Continue che")
+		anim.play()

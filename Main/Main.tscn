@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Main/Main.gd" type="Script" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -7,14 +7,19 @@
 [ext_resource path="res://Main/HUD.gd" type="Script" id=5]
 [ext_resource path="res://assets/Sonidos/InicioBackground.mp3" type="AudioStream" id=6]
 [ext_resource path="res://Enemy/Charlotte.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/GD-MadoMaruGoJA-Rev001.otf" type="DynamicFontData" id=8]
+[ext_resource path="res://assets/Sonidos/out_zw.wav" type="AudioStream" id=9]
+[ext_resource path="res://assets/Sonidos/Zw_sound.wav" type="AudioStream" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 38
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 40
-font_data = ExtResource( 4 )
+size = 60
+outline_size = 2
+outline_color = Color( 0.164706, 0.164706, 0.164706, 1 )
+font_data = ExtResource( 8 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 46.5266, 10 )
@@ -89,7 +94,9 @@ margin_top = 297.506
 margin_right = 237.003
 margin_bottom = 359.506
 custom_fonts/font = SubResource( 2 )
-text = "Game Over!"
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "GAME OVER"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -99,10 +106,6 @@ __meta__ = {
 autostart = true
 
 [node name="MadokaHeadTimer" type="Timer" parent="."]
-
-[node name="GameBackgroundMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 6 )
-volume_db = -10.0
 
 [node name="Plataform" type="StaticBody2D" parent="."]
 position = Vector2( 129.974, 316.151 )
@@ -116,7 +119,7 @@ shape = SubResource( 3 )
 [node name="Borders" type="Node" parent="."]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Borders"]
-position = Vector2( -10.0793, 373.81 )
+position = Vector2( -5.0793, 373.81 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -125,9 +128,27 @@ __meta__ = {
 position = Vector2( -1, 0 )
 shape = SubResource( 4 )
 
-[node name="Right" type="CollisionShape2D" parent="Borders/StaticBody2D"]
-position = Vector2( 500.23, 8.00903 )
+[node name="StaticBody2D2" type="StaticBody2D" parent="Borders"]
+position = Vector2( -10.0793, 373.81 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Right" type="CollisionShape2D" parent="Borders/StaticBody2D2"]
+position = Vector2( 494.23, 8.00903 )
 shape = SubResource( 4 )
+
+[node name="GameBackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -15.0
+
+[node name="EnterZaWarudo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = -10.0
+
+[node name="OutZaWarudo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -10.0
 
 [connection signal="hurt" from="Player" to="." method="_on_Player_hurt"]
 [connection signal="picked" from="Player" to="." method="_on_Player_picked"]

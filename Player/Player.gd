@@ -11,7 +11,7 @@ var speed = 350
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	OS.center_window()
-	position = Vector2(100, 100)
+	position = Vector2(240, 600)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -19,8 +19,8 @@ func _process(delta):
 	position += velocity * delta
 	
 	 #que no pueda superar los bordes de pantalla
-	position.x = clamp(position.x, 0, 480)
-	position.y = clamp(position.y, 0, 720)
+	position.x = clamp(position.x, 0, 460)
+	position.y = clamp(position.y, 0, 700)
 
 	process_animations()
 

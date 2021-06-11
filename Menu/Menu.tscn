@@ -1,16 +1,20 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://assets/ja-jp.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Menu/Menu.gd" type="Script" id=2]
 [ext_resource path="res://assets/Sonidos/GameBackground.mp3" type="AudioStream" id=3]
+[ext_resource path="res://assets/GD-MadoMaruGoJA-Rev001.otf" type="DynamicFontData" id=4]
 
 [sub_resource type="DynamicFont" id=1]
-size = 24
-font_data = ExtResource( 1 )
+size = 36
+font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 30
-font_data = ExtResource( 1 )
+size = 40
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 25
+font_data = ExtResource( 4 )
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
@@ -23,12 +27,17 @@ __meta__ = {
 [node name="LabelTitle" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -235.0
-margin_top = 5.0
-margin_right = 245.0
-margin_bottom = 35.0
+margin_left = -240.0
+margin_top = 179.0
+margin_right = 240.0
+margin_bottom = 256.0
 custom_fonts/font = SubResource( 1 )
-text = "Temporal line: Tamura Catch Em All!!"
+custom_colors/font_color = Color( 0.894118, 0.827451, 0.113725, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "TAMURA CATCH EM ALL
+"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -38,10 +47,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -119.0
-margin_top = -22.0
-margin_right = 119.0
-margin_bottom = 22.0
+margin_left = -174.5
+margin_top = -40.0
+margin_right = 174.0
+margin_bottom = 40.0
 custom_fonts/font = SubResource( 2 )
 text = "PLAY"
 __meta__ = {
@@ -50,6 +59,18 @@ __meta__ = {
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-volume_db = -10.0
+volume_db = -15.0
+
+[node name="Label" type="Label" parent="."]
+margin_left = 128.0
+margin_top = 42.0
+margin_right = 338.0
+margin_bottom = 95.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 0.419608, 0.780392, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "PUELLA MAGI
+MADOKA MAGICA"
+align = 1
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

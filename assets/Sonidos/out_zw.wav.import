@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/out_zw.wav-a5e4377e4adc12609768842687664ffd.sample"
+
+[deps]
+
+source_file="res://assets/Sonidos/out_zw.wav"
+dest_files=[ "res://.import/out_zw.wav-a5e4377e4adc12609768842687664ffd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

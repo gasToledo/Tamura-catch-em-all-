@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/truezw_sound.wav-a1bfe382b2ea0b7fb4ee7829b29891df.sample"
+
+[deps]
+
+source_file="res://assets/Sonidos/truezw_sound.wav"
+dest_files=[ "res://.import/truezw_sound.wav-a1bfe382b2ea0b7fb4ee7829b29891df.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
