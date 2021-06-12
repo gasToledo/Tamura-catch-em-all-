@@ -32,8 +32,8 @@ margin_top = 179.0
 margin_right = 240.0
 margin_bottom = 256.0
 custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.894118, 0.827451, 0.113725, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0.0901961, 0.0784314, 0.0823529, 1 )
+custom_colors/font_color_shadow = Color( 0.87451, 0.87451, 0.87451, 1 )
 text = "TAMURA CATCH EM ALL
 "
 align = 1
@@ -81,8 +81,9 @@ margin_left = 128.0
 margin_top = 42.0
 margin_right = 338.0
 margin_bottom = 95.0
+input_pass_on_modal_close_click = false
 custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 1, 0.419608, 0.780392, 1 )
+custom_colors/font_color = Color( 0.835294, 0.490196, 0.705882, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "PUELLA MAGI
 MADOKA MAGICA"

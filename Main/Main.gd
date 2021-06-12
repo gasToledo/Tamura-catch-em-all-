@@ -16,9 +16,11 @@ var actual_level = 1
 var score = 0
 var za_warudo_flag = false
 
+var levelsSumados
 var pauseMenu = preload("res://PauseMenu/Pause.tscn")
 var inst : Node = null
 var paused = false
+var touch_pause = false
 
 onready var GameOverTimer = Timer.new()
 
@@ -167,21 +169,14 @@ func _enemy_actions_stop():
 	#1. comprobar si se esta moviendo. 
 	#2.si lo esta, detener la animacion en el frame exacto
 	if anim.is_playing():
-		print("He parao")
 		anim.stop()
 
 func _enemy_actions_return():
 	var anim = $Charlotte/AnimatedSprite
 
 	if anim.is_playing() == false :
-		print("Continue che")
 		anim.play()
 
-func _aumentar_dificutad():
-	var _enemy = Charlotte.instance()
-	#1. Generar un rango que diferencia cada 5 niveles pasados
-	#2. Una vez que pasen los 5 niveles, aumentar la velocidad del enemy
-	pass
 
 
 func _input(event: InputEvent) -> void:
@@ -192,6 +187,7 @@ func _input(event: InputEvent) -> void:
 
 func pause():
 	inst = pauseMenu.instance()
+	$GameBackgroundMusic.stop()
 	Engine.time_scale = 0.0
 	get_tree().current_scene.add_child(inst)
 	paused = true
@@ -199,4 +195,5 @@ func pause():
 func resume():
 	Engine.time_scale = 1.0
 	get_tree().current_scene.remove_child(inst)
+	$GameBackgroundMusic.play()
 	paused = false

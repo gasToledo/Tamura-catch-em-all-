@@ -64,14 +64,9 @@ func _process(_delta):
 	if is_on_floor() and state == LANDING and Star_platinum.za_warudo_flag == false:
 		transition_to(IDLE)
 
-
-
-
 func _physics_process(delta):
 	velocity.y += gravity_power * delta
 	velocity = move_and_slide(velocity, Vector2.UP)
-
-
 
 
 func set_timer_interval():
@@ -81,7 +76,7 @@ func set_timer_interval():
 	$Timer.start()
 
 
-#Timer para respirar ()
+#Timer para mock ()
 func _on_Timer_timeout():
 	$Timer.stop()
 	if state == IDLE and Star_platinum.za_warudo_flag == false:
@@ -91,8 +86,9 @@ func _on_Timer_timeout():
 
 
 func _enable_hitbox():
-	if $AnimatedSprite.animation == "Mock" and $AnimatedSprite.frame == 4 :
-		$Attack_hitbox.disabled = true #Devolver false, para activar la Hitbox
+	if $AnimatedSprite.animation == "Mock" and $AnimatedSprite.frame == 4:
+		$Attack_hitbox
+		$Attack_hitbox.disabled = true#Devolver false, para activar la Hitbox
 
 
 func _on_AnimatedSprite_animation_finished():
@@ -111,7 +107,7 @@ func _on_Jump_timeout():
 		update_speed_direccion()
 	
 	#Timer de "Jump"
-	$JumpTimer.wait_time =  rand_range(2, 4)
+	$JumpTimer.wait_time =  rand_range(1, 2)
 	$JumpTimer.start()
 
 

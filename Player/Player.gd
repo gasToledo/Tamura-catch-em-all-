@@ -9,6 +9,13 @@ signal hurt
 var velocity = Vector2.ZERO
 var speed = 350
 
+#touch section
+
+var touch_left = false
+var touch_right = false
+var touch_up = false
+var touch_down = false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -28,13 +35,13 @@ func _process(delta):
 
 func get_input():
 	velocity = Vector2.ZERO
-	if Input.is_action_pressed("ui_left"):
+	if Input.is_action_pressed("ui_left") or touch_left:
 		velocity.x = -1
-	if Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed("ui_right") or touch_right:
 		velocity.x = 1
-	if Input.is_action_pressed("ui_up"):
+	if Input.is_action_pressed("ui_up") or touch_up:
 		velocity.y = -1
-	if Input.is_action_pressed("ui_down"):
+	if Input.is_action_pressed("ui_down") or touch_down:
 		velocity.y = 1
 
 	if velocity.length() > 0:
@@ -71,4 +78,37 @@ func game_over():
 func _on_Player_body_entered(body):
 	if body.is_in_group("enemy"):
 		emit_signal("hurt", "enemy")
+
+
+
+func _on_LeftButton_pressed():
+	touch_left = true
+
+
+func _on_LeftButton_released():
+	touch_left = false
+
+
+func _on_RightButton_pressed():
+	touch_right = true
+
+
+func _on_RightButton_released():
+	touch_right = false
+
+
+func _on_UpButton_pressed():
+	touch_up = true
+
+
+func _on_UpButton_released():
+	touch_up = false
+
+
+func _on_DownButton_pressed():
+	touch_down = true
+
+
+func _on_DownButton_released():
+	touch_down = false
 
